@@ -1,0 +1,21 @@
+#heading {
+  color: #9acd32;
+}
+
+.navbar-edit {
+  padding: 10px;
+}
+
+.body {
+  flex-wrap: wrap;
+  margin-top: 50px;
+  margin-left: 2%;
+  margin-right: 2%;
+  display: flex;
+}
+
+.card1 {
+  margin: 1%;
+}
+
+/*# sourceMappingURL=index.9e4c6fd2.css.map */

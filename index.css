@@ -1,0 +1,42 @@
+#heading {
+  color: yellowgreen;
+}
+.navbar-edit {
+  padding: 10px;
+}
+.body {
+  margin-top: 0px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.card1 {
+  margin: 1%;
+}
+.badge {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 1rem;
+  margin-top: 10px;
+}
+.card-text{
+    padding-bottom: 3rem;
+}
+.search{
+    margin-top: 50px;
+    margin-left: 1%;
+    width: 250px;
+    border-radius: 5px;
+}
+.cost{
+
+  margin-right: 1rem;
+  position: absolute;
+  right: 0;
+}
+.time{
+  margin-left: 2.7rem;
+}
+.loading{
+  margin-top: 200px;
+}

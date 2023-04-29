@@ -1,0 +1,52 @@
+#heading {
+  color: #9acd32;
+}
+
+.navbar-edit {
+  padding: 10px;
+}
+
+.body {
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 0;
+  display: flex;
+}
+
+.card1 {
+  margin: 1%;
+}
+
+.badge {
+  margin-top: 10px;
+  margin-bottom: 1rem;
+  position: absolute;
+  bottom: 0;
+}
+
+.card-text {
+  padding-bottom: 3rem;
+}
+
+.search {
+  width: 250px;
+  border-radius: 5px;
+  margin-top: 50px;
+  margin-left: 1%;
+}
+
+.cost {
+  margin-right: 1rem;
+  position: absolute;
+  right: 0;
+}
+
+.time {
+  margin-left: 2.7rem;
+}
+
+.loading {
+  margin-top: 200px;
+}
+
+/*# sourceMappingURL=index.9e4c6fd2.css.map */
