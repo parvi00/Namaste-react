@@ -45,8 +45,12 @@
   margin-left: 2.7rem;
 }
 
-.loading {
+.loading, .nores {
   margin-top: 200px;
+}
+
+.header-btn {
+  margin-left: 500px;
 }
 
 /*# sourceMappingURL=index.9e4c6fd2.css.map */

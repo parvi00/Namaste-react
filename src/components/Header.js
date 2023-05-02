@@ -3,9 +3,12 @@ const Header = () => {
     <>
       <div>
         <nav class=" bg-body-tertiary shadow-lg navbar-edit fixed-top">
-          <div class="container-fluid">
-            <span class="navbar-text">Header</span>
-          </div>
+          
+          <div>
+            <button  type="button" className="btn btn-light">Home</button>
+            <button  type="button" className="btn btn-light">About</button>
+            <button  type="button" className="btn btn-light">Contact Us</button>
+            </div>
         </nav>
       </div>
     </>

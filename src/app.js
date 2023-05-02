@@ -2,7 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './components/Header';
 import Body from './components/Body';
-
+import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import About from './components/About';
 
 
 const HeadingComponent = () => {
@@ -14,8 +15,18 @@ const HeadingComponent = () => {
     );
 };
 
+const appRouter = createBrowserRouter([
+    {
+        path:"/",
+        Component: <HeadingComponent/>
+    },
+    {
+        path:"/about",
+        component: <About/>
+    }
+])
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<HeadingComponent/>);
+root.render(<RouterProvider router={appRouter} />);
