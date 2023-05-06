@@ -46,3 +46,23 @@
 .header-btn{
   margin-left: 500px;
 }
+.row-res{
+  margin-top: 5rem;  
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+.card-text{
+  padding-bottom: 0%;
+}
+.badgge{
+  margin-left: 72%;
+}
+.btn-success{
+  margin-top: 3%;  
+  margin-left: 3%;
+  margin-right: 3%;
+  width: 93%;
+}
+.bg-dark{
+  background-color: black;
+}

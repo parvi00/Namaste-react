@@ -1,16 +1,19 @@
-import React from 'react'
+import React, { Children } from 'react'
 import ReactDOM from 'react-dom/client'
 import Header from './components/Header';
 import Body from './components/Body';
-import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import { createBrowserRouter,RouterProvider,Outlet } from 'react-router-dom';
 import About from './components/About';
+import Contact from './components/Contact';
+import RestaruntMenu from './components/RestaruntMenu';
+
 
 
 const HeadingComponent = () => {
     return (
         <>
         <Header/>
-        <Body/>
+        <Outlet/>
         </>
     );
 };
@@ -18,12 +21,27 @@ const HeadingComponent = () => {
 const appRouter = createBrowserRouter([
     {
         path:"/",
-        Component: <HeadingComponent/>
+        element: <HeadingComponent />,
+        children:[
+            {
+                path:"/about",
+                element: <About />
+            },
+            {
+                path:"/",
+                element: <Body />
+            },
+            {
+                path:"/contact",
+                element: <Contact />
+            },
+            {
+                path: "/restraunts/:resid",
+                element: <RestaruntMenu/>
+            }
+        ]
     },
-    {
-        path:"/about",
-        component: <About/>
-    }
+    
 ])
 
 

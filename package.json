@@ -1,7 +1,7 @@
 {
   "name": "namaste-react",
   "version": "1.0.0",
-  "description": "hello i am yash",
+  "description": "hello i am parvi",
   "main": "app.js",
   "scripts": {
     "test": "jest"
@@ -9,9 +9,11 @@
   "author": "Yash",
   "license": "ISC",
   "dependencies": {
+    "@cred/neopop-web": "^1.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.0"
+    "react-router-dom": "^6.11.0",
+    "styled-components": "^5.3.10"
   },
   "devDependencies": {
     "parcel": "^2.8.3",

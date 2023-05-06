@@ -24,10 +24,6 @@
   bottom: 0;
 }
 
-.card-text {
-  padding-bottom: 3rem;
-}
-
 .search {
   width: 250px;
   border-radius: 5px;
@@ -51,6 +47,31 @@
 
 .header-btn {
   margin-left: 500px;
+}
+
+.row-res {
+  margin-top: 5rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.card-text {
+  padding-bottom: 0%;
+}
+
+.badgge {
+  margin-left: 72%;
+}
+
+.btn-success {
+  width: 93%;
+  margin-top: 3%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.bg-dark {
+  background-color: #000;
 }
 
 /*# sourceMappingURL=index.9e4c6fd2.css.map */

@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import ResCard from "./ResCard";
 import { resList } from "../config";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
+import useRestrauntData from "../hooks/useRestrauntData";
 
 function filter(searchText, res) {
   const filtereddata = res.filter((x) => x.data?.name?.toLowerCase()?.includes(searchText.toLowerCase()));
@@ -26,6 +28,12 @@ const Body = () => {
     setallRes(json?.data?.cards[2]?.data?.data?.cards);
   }
 
+  console.log()
+
+  const data = useRestrauntData()
+
+setFilterres(data);
+    setallRes(data);
 
   // if(Filterres?.length == 0) return <h1 className="nores">no restraunt is there</h1>
 
@@ -60,6 +68,7 @@ const Body = () => {
         
         Filterres.map((x) => {
           return (
+          
             <ResCard
               name={x.data.name}
               cuisines={x.data.cuisines}
@@ -68,7 +77,9 @@ const Body = () => {
               key={x.data.id}
               cost={x.data.costForTwoString}
               time={x.data.slaString}
+              id={x.data.id}
             />
+            
           );
         }) 
         
