@@ -27232,15 +27232,15 @@ const Header = (props)=>{
                                 edgeColors: {
                                     bottom: "red"
                                 },
-                                children: "Primary"
+                                children: "Home"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 10,
+                                lineNumber: 14,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 9,
+                            lineNumber: 13,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -27249,15 +27249,15 @@ const Header = (props)=>{
                                 variant: "primary",
                                 kind: "flat",
                                 size: "big",
-                                children: "Primary"
+                                children: "About Us"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 15,
+                                lineNumber: 24,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 14,
+                            lineNumber: 23,
                             columnNumber: 13
                         }, undefined),
                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
@@ -27266,31 +27266,31 @@ const Header = (props)=>{
                                 variant: "primary",
                                 kind: "flat",
                                 size: "big",
-                                children: "Primary"
+                                children: "Contact Us"
                             }, void 0, false, {
                                 fileName: "src/components/Header.js",
-                                lineNumber: 20,
+                                lineNumber: 29,
                                 columnNumber: 15
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/Header.js",
-                            lineNumber: 19,
+                            lineNumber: 28,
                             columnNumber: 13
                         }, undefined)
                     ]
                 }, void 0, true, {
                     fileName: "src/components/Header.js",
-                    lineNumber: 8,
+                    lineNumber: 11,
                     columnNumber: 11
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/Header.js",
-                lineNumber: 7,
+                lineNumber: 10,
                 columnNumber: 9
             }, undefined)
         }, void 0, false, {
             fileName: "src/components/Header.js",
-            lineNumber: 6,
+            lineNumber: 9,
             columnNumber: 7
         }, undefined)
     }, void 0, false);
@@ -46330,39 +46330,29 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _resCard = require("./ResCard");
 var _resCardDefault = parcelHelpers.interopDefault(_resCard);
-var _config = require("../config");
 var _shimmer = require("./Shimmer");
 var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
 var _reactRouterDom = require("react-router-dom");
 var _useRestrauntData = require("../hooks/useRestrauntData");
 var _useRestrauntDataDefault = parcelHelpers.interopDefault(_useRestrauntData);
+var _helper = require("./utils/helper");
 var _s = $RefreshSig$();
-function filter(searchText, res) {
-    const filtereddata = res.filter((x)=>x.data?.name?.toLowerCase()?.includes(searchText.toLowerCase()));
-    return filtereddata;
-}
 const Body = ()=>{
     _s();
     const [allRes, setallRes] = (0, _react.useState)([]);
     const [Filterres, setFilterres] = (0, _react.useState)([]);
     const [searchText, setsearchText] = (0, _react.useState)();
+    const data1 = (0, _useRestrauntDataDefault.default)();
     (0, _react.useEffect)(()=>{
-        getSwiggy();
-    }, []);
-    async function getSwiggy() {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5217372&lng=77.36725539999999&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
-        setFilterres(json?.data?.cards[2]?.data?.data?.cards);
-        setallRes(json?.data?.cards[2]?.data?.data?.cards);
-    }
-    console.log();
-    const data = (0, _useRestrauntDataDefault.default)();
-    setFilterres(data);
-    setallRes(data);
-    // if(Filterres?.length == 0) return <h1 className="nores">no restraunt is there</h1>
+        setFilterres(data1);
+        setallRes(data1);
+    }, [
+        data1
+    ]);
+    // console.log(Filterres)
     return allRes?.length == 0 ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _shimmerDefault.default), {}, void 0, false, {
         fileName: "src/components/Body.js",
-        lineNumber: 41,
+        lineNumber: 25,
         columnNumber: 5
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
@@ -46379,25 +46369,25 @@ const Body = ()=>{
                         }
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 45,
+                        lineNumber: 29,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
                         className: "search-btn",
                         onClick: ()=>{
-                            const data = filter(searchText, allRes);
+                            const data = (0, _helper.filtereddata)(searchText, allRes);
                             setFilterres(data);
                         },
                         children: "Search"
                     }, void 0, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 54,
+                        lineNumber: 38,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/Body.js",
-                lineNumber: 44,
+                lineNumber: 28,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -46413,19 +46403,19 @@ const Body = ()=>{
                         id: x.data.id
                     }, x.data.id, false, {
                         fileName: "src/components/Body.js",
-                        lineNumber: 72,
+                        lineNumber: 51,
                         columnNumber: 13
                     }, undefined);
                 })
             }, void 0, false, {
                 fileName: "src/components/Body.js",
-                lineNumber: 65,
+                lineNumber: 48,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true);
 };
-_s(Body, "aIi7IaoEQ8+z7z0ENPNkmksD2n4=", false, function() {
+_s(Body, "Y202EdpHrF7Y9+tGXhbNLiTvIAA=", false, function() {
     return [
         (0, _useRestrauntDataDefault.default)
     ];
@@ -46440,7 +46430,7 @@ $RefreshReg$(_c, "Body");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","./ResCard":"ezFeH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./Shimmer":"g6ZGj","../config":"jtCLN","react-router-dom":"9xmpe","../hooks/useRestrauntData":"dIwpl"}],"ezFeH":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","./ResCard":"ezFeH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react":"21dqq","./Shimmer":"g6ZGj","react-router-dom":"9xmpe","../hooks/useRestrauntData":"dIwpl","./utils/helper":"9Lcuw"}],"ezFeH":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$40f6 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -46592,2058 +46582,7 @@ $RefreshReg$(_c, "Shimmer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jtCLN":[function(require,module,exports) {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "resList", ()=>resList);
-const resList = [
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "90872",
-            "name": "Burger King",
-            "uuid": "e2e3f61a-20a5-4a95-85d6-d69da7fee3b6",
-            "city": "10459",
-            "area": "Sector 74",
-            "totalRatingsString": "10000+ ratings",
-            "cloudinaryImageId": "28fb13049b4e55297bb3f703cde63c35",
-            "cuisines": [
-                "Burgers",
-                "American"
-            ],
-            "tags": [],
-            "costForTwo": 35000,
-            "costForTwoString": "₹350 FOR TWO",
-            "deliveryTime": 32,
-            "minDeliveryTime": 32,
-            "maxDeliveryTime": 32,
-            "slaString": "32 MINS",
-            "lastMileTravel": 8.600000381469727,
-            "slugs": {
-                "restaurant": "burger-king-sector-74-sector-50-2",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "GF and FF,North Eye, Plot No GH 01, Sector 74, Noida, Uttar Pradesh 201301",
-            "locality": "North Eye",
-            "parentId": 166,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "Get every item under 129",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Get every item under 129",
-                        "discountType": "FinalPrice",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Get every item under 129",
-                        "discountType": "FinalPrice",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "",
-                "shortDescriptionList": [
-                    {
-                        "meta": "",
-                        "discountType": "FinalPrice",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Get every item under 129",
-                        "discountType": "FinalPrice",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "ribbon": [
-                {
-                    "type": "PROMOTED"
-                }
-            ],
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 9600,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 9600,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "9600",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "cid=6561110~p=1~eid=00000187-c3c7-ca54-0a6c-6dfc005a0162",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "8.6 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "90872",
-                "deliveryTime": 32,
-                "minDeliveryTime": 32,
-                "maxDeliveryTime": 32,
-                "lastMileTravel": 8.600000381469727,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": true,
-            "avgRating": "4.2",
-            "totalRatings": 10000,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "22132",
-            "name": "Al Nawab Restaurant",
-            "uuid": "460db3a0-f476-4d64-bb9d-2b5080158bf7",
-            "city": "10459",
-            "area": "Hajipur",
-            "totalRatingsString": "10000+ ratings",
-            "cloudinaryImageId": "lczmmddifkbobtccrpue",
-            "cuisines": [
-                "Biryani",
-                "Mughlai",
-                "North Indian"
-            ],
-            "tags": [],
-            "costForTwo": 20000,
-            "costForTwoString": "₹200 FOR TWO",
-            "deliveryTime": 17,
-            "minDeliveryTime": 17,
-            "maxDeliveryTime": 17,
-            "slaString": "17 MINS",
-            "lastMileTravel": 2.700000047683716,
-            "slugs": {
-                "restaurant": "al-nawab-sector-110-noida-expressway",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "SHOP NO 1, RESTAURANT VILLAGE HAJIPUR , SECTOR 104, NOIDA ,NOIDA CITY ZONE-5,Gautam Buddha Nagar ,Uttar Pradesh-201301",
-            "locality": "Sector 104",
-            "parentId": 29345,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "Flat ₹125 off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "₹125 OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "chain": [],
-            "feeDetails": {
-                "fees": [],
-                "totalFees": 0,
-                "message": "",
-                "title": "",
-                "amount": "",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "2.7 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "22132",
-                "deliveryTime": 17,
-                "minDeliveryTime": 17,
-                "maxDeliveryTime": 17,
-                "lastMileTravel": 2.700000047683716,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "4.1",
-            "totalRatings": 10000,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "435237",
-            "name": "Giani Ice Cream",
-            "uuid": "505f9c05-36b8-4efa-bb72-f4a6a2fb1e21",
-            "city": "10459",
-            "area": "Noida Expressway",
-            "totalRatingsString": "100+ ratings",
-            "cloudinaryImageId": "ki8hsmbka7zrs1v9xjt3",
-            "cuisines": [
-                "Ice Cream",
-                "Beverages"
-            ],
-            "tags": [],
-            "costForTwo": 30000,
-            "costForTwoString": "₹300 FOR TWO",
-            "deliveryTime": 18,
-            "minDeliveryTime": 18,
-            "maxDeliveryTime": 18,
-            "slaString": "18 MINS",
-            "lastMileTravel": 2.700000047683716,
-            "slugs": {
-                "restaurant": "giani-ice-cream-noida-expressway-noida-expressway",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "Hazipur, Sector 104, Noida, Gautam Buddha Nagar, Uttar Pradesh, India",
-            "locality": "Sector 104",
-            "parentId": 6577,
-            "unserviceable": false,
-            "veg": true,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "10% off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "10% off | Use TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "10% off up to ₹40 | Use code TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "10% OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "10% off up to ₹40 | Use code TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 4000,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4000,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4000",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "2.7 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "435237",
-                "deliveryTime": 18,
-                "minDeliveryTime": 18,
-                "maxDeliveryTime": 18,
-                "lastMileTravel": 2.700000047683716,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "4.0",
-            "totalRatings": 100,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "635149",
-            "name": "RollsKing",
-            "uuid": "93243267-0ddd-4b83-9877-3f654297981f",
-            "city": "10459",
-            "area": "Gautam Buddha Nagar",
-            "totalRatingsString": "500+ ratings",
-            "cloudinaryImageId": "vgt9x7g0svffgwcq1u0d",
-            "cuisines": [
-                "North Indian",
-                "Fast Food",
-                "Beverages"
-            ],
-            "tags": [],
-            "costForTwo": 30000,
-            "costForTwoString": "₹300 FOR TWO",
-            "deliveryTime": 32,
-            "minDeliveryTime": 32,
-            "maxDeliveryTime": 32,
-            "slaString": "32 MINS",
-            "lastMileTravel": 8.800000190734863,
-            "slugs": {
-                "restaurant": "rollsking-sector-50-sector-50-2",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "SHOP NUM-03,VILLAGE SARFABAD SECTOR-73 NOIDA, NOIDA CITY ZONE-4, Gautam Buddha Nagar , Uttar Pradesh, 201301",
-            "locality": "Sector 73",
-            "parentId": 4697,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "50% off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "50% off | Use TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "50% off up to ₹100 | Use code TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "50% OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "50% off up to ₹100 | Use code TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "ribbon": [
-                {
-                    "type": "PROMOTED"
-                }
-            ],
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "distance",
-                        "fee": 9600,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 9600,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "9600",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "cid=6394585~p=4~eid=00000187-c3c7-ca54-0a6c-6dfd005a042f",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "8.8 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "635149",
-                "deliveryTime": 32,
-                "minDeliveryTime": 32,
-                "maxDeliveryTime": 32,
-                "lastMileTravel": 8.800000190734863,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": true,
-            "avgRating": "3.8",
-            "totalRatings": 500,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "634136",
-            "name": "Subway",
-            "uuid": "ebb9fb66-bdf6-497d-b9bd-25ecd07f5b6d",
-            "city": "10459",
-            "area": "Gautam Buddha Nagar",
-            "totalRatingsString": "100+ ratings",
-            "cloudinaryImageId": "0bf19a82b109b40c2f5c56d00f071a33",
-            "cuisines": [
-                "Salads",
-                "Snacks",
-                "Desserts",
-                "Beverages"
-            ],
-            "tags": [],
-            "costForTwo": 35000,
-            "costForTwoString": "₹350 FOR TWO",
-            "deliveryTime": 18,
-            "minDeliveryTime": 18,
-            "maxDeliveryTime": 18,
-            "slaString": "18 MINS",
-            "lastMileTravel": 2,
-            "slugs": {
-                "restaurant": "subway-sector-98-golf-course",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "Subway at Ground Floor, Skymark One, Tower D at Plot No- H-10/B, Sector- 98, Noida, NOIDA CITY ZONE-2, Gautam Buddha Nagar , Uttar Pradesh-201301",
-            "locality": "Sector 98",
-            "parentId": 2,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "20% off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "20% off | Use TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "20% off up to ₹50 | Use code TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "20% OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "20% off up to ₹50 | Use code TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 4000,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4000,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4000",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "2 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "634136",
-                "deliveryTime": 18,
-                "minDeliveryTime": 18,
-                "maxDeliveryTime": 18,
-                "lastMileTravel": 2,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "3.9",
-            "totalRatings": 100,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "550721",
-            "name": "Crumbelle",
-            "uuid": "9692525d-7b96-4af6-bc21-69d49c1cbe9a",
-            "city": "10459",
-            "area": "Sector 104",
-            "totalRatingsString": "100+ ratings",
-            "cloudinaryImageId": "454fc65dc5233fd8882b72c8812c1748",
-            "cuisines": [
-                "Bakery",
-                "Desserts",
-                "Snacks",
-                "Fast Food",
-                "Salads",
-                "Continental",
-                "Beverages"
-            ],
-            "tags": [],
-            "costForTwo": 45000,
-            "costForTwoString": "₹450 FOR TWO",
-            "deliveryTime": 19,
-            "minDeliveryTime": 19,
-            "maxDeliveryTime": 19,
-            "slaString": "19 MINS",
-            "lastMileTravel": 3,
-            "slugs": {
-                "restaurant": "crumbelle-noida-expressway-noida-expressway-2",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "HA-109,Ground floor,sec-104,noida,Gb,nagar,noid city zone-5,gautam buddha nagar,uttar pradesh-201301",
-            "locality": "Sector 104",
-            "parentId": 330504,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "50% off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "50% off | Use TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "50% off up to ₹100 | Use code TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "50% OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "50% off up to ₹100 | Use code TRYNEW",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "distance",
-                        "fee": 4800,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4800,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4800",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "3 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "550721",
-                "deliveryTime": 19,
-                "minDeliveryTime": 19,
-                "maxDeliveryTime": 19,
-                "lastMileTravel": 3,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "3.9",
-            "totalRatings": 100,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "177495",
-            "name": "La Pino'z Pizza",
-            "uuid": "e879581e-3f0e-4c60-ae09-79b19ceac6bc",
-            "city": "10459",
-            "area": "Hajipur",
-            "totalRatingsString": "5000+ ratings",
-            "cloudinaryImageId": "ugemttaiukyqfhxkfs9i",
-            "cuisines": [
-                "Pizzas",
-                "Italian"
-            ],
-            "tags": [],
-            "costForTwo": 30000,
-            "costForTwoString": "₹300 FOR TWO",
-            "deliveryTime": 26,
-            "minDeliveryTime": 26,
-            "maxDeliveryTime": 26,
-            "slaString": "26 MINS",
-            "lastMileTravel": 3,
-            "slugs": {
-                "restaurant": "la-pinoz-pizza-sector-104-golf-course",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "GT01, Basement, Opp Pathways School, Sector 104, Noida - 201301",
-            "locality": "Pathways School Road",
-            "parentId": 4961,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "Flat ₹125 off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "₹125 OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "ribbon": [
-                {
-                    "type": "PROMOTED"
-                }
-            ],
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 4800,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4800,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4800",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "cid=6564354~p=7~eid=00000187-c3c7-ca54-0a6c-6dfe005a077f",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "3 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "177495",
-                "deliveryTime": 26,
-                "minDeliveryTime": 26,
-                "maxDeliveryTime": 26,
-                "lastMileTravel": 3,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": true,
-            "avgRating": "3.8",
-            "totalRatings": 5000,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "594685",
-            "name": "Chinese Wok",
-            "uuid": "b489bf51-db8c-4696-852b-af0ada970413",
-            "city": "10459",
-            "area": "Sector 110",
-            "totalRatingsString": "100+ ratings",
-            "cloudinaryImageId": "58ee0c742e8d56c3475db9ced65d2d47",
-            "cuisines": [
-                "Chinese",
-                "Asian",
-                "Tibetan",
-                "Desserts"
-            ],
-            "tags": [],
-            "costForTwo": 25000,
-            "costForTwoString": "₹250 FOR TWO",
-            "deliveryTime": 19,
-            "minDeliveryTime": 19,
-            "maxDeliveryTime": 19,
-            "slaString": "19 MINS",
-            "lastMileTravel": 3,
-            "slugs": {
-                "restaurant": "chinese-wok---wok-express-noida-expressway-noida-expressway",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "First Floor, Plot No- 3, Block- A-3, Sector- 110, Noida, NOIDA CITY ZONE-1, Gautam Buddha Nagar , Uttar Pradesh, 201304",
-            "locality": "Gautam Buddha Nagar",
-            "parentId": 61955,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "Flat ₹125 off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "₹125 OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 4800,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4800,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4800",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "3 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "594685",
-                "deliveryTime": 19,
-                "minDeliveryTime": 19,
-                "maxDeliveryTime": 19,
-                "lastMileTravel": 3,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "3.6",
-            "totalRatings": 100,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "133708",
-            "name": "Nirula's",
-            "uuid": "a0c6a2d0-c968-464e-a165-b01acf7db233",
-            "city": "10459",
-            "area": "Sector 127",
-            "totalRatingsString": "500+ ratings",
-            "cloudinaryImageId": "94c82b9d46792c198fff64899ff05bd2",
-            "cuisines": [
-                "Pizzas",
-                "Burgers",
-                "Ice Cream",
-                "North Indian",
-                "Fast Food",
-                "Pastas",
-                "Beverages"
-            ],
-            "tags": [],
-            "costForTwo": 50000,
-            "costForTwoString": "₹500 FOR TWO",
-            "deliveryTime": 20,
-            "minDeliveryTime": 20,
-            "maxDeliveryTime": 20,
-            "slaString": "20 MINS",
-            "lastMileTravel": 2.0999999046325684,
-            "slugs": {
-                "restaurant": "nirula39s-ice-cream-noida-expressway",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "SHOP NO. 18, IMPERIAL ARCADE, JAYPEE WISHTOWN, SECTOR-128, NOIDA",
-            "locality": "Golf Course",
-            "parentId": 1738,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "20% off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "20% off | Use MATCHPARTY",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "20% off | Use code MATCHPARTY",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "20% OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use MATCHPARTY",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "20% off | Use code MATCHPARTY",
-                        "discountType": "Percentage",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 4000,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4000,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4000",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "2 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "133708",
-                "deliveryTime": 20,
-                "minDeliveryTime": 20,
-                "maxDeliveryTime": 20,
-                "lastMileTravel": 2.0999999046325684,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "4.4",
-            "totalRatings": 500,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "660967",
-            "name": "Simple Burger",
-            "uuid": "440ec965-28a4-42a2-aeac-2bbe4538056a",
-            "city": "10459",
-            "area": "Sector 18",
-            "totalRatingsString": "1000+ ratings",
-            "cloudinaryImageId": "ec153ee219540e61e2e71419b75b2922",
-            "cuisines": [
-                "Burgers",
-                "Chinese"
-            ],
-            "tags": [],
-            "costForTwo": 25000,
-            "costForTwoString": "₹250 FOR TWO",
-            "deliveryTime": 38,
-            "minDeliveryTime": 38,
-            "maxDeliveryTime": 38,
-            "slaString": "38 MINS",
-            "lastMileTravel": 9.199999809265137,
-            "slugs": {
-                "restaurant": "simple-burger-sector-18-sector-18",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "26, Plot D-6, Ground Floor, Wave Silver Tower, Sector 18, Noida",
-            "locality": "Wave Silver Tower",
-            "parentId": 349369,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "Flat ₹125 off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "₹125 OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "ribbon": [
-                {
-                    "type": "PROMOTED"
-                }
-            ],
-            "chain": [],
-            "feeDetails": {
-                "fees": [],
-                "totalFees": 0,
-                "message": "",
-                "title": "",
-                "amount": "",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "cid=6303300~p=10~eid=00000187-c3c7-ca54-0a6c-6dff005a0a4a",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "9.1 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "660967",
-                "deliveryTime": 38,
-                "minDeliveryTime": 38,
-                "maxDeliveryTime": 38,
-                "lastMileTravel": 9.199999809265137,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": true,
-            "avgRating": "4.3",
-            "totalRatings": 1000,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "571461",
-            "name": "Hong's Kitchen",
-            "uuid": "dd828692-d4fa-4384-83a8-38bb9563f8d3",
-            "city": "10459",
-            "area": "Hajipur",
-            "totalRatingsString": "500+ ratings",
-            "cloudinaryImageId": "hfo97622qjkgz6dm9nuy",
-            "cuisines": [
-                "Chinese",
-                "Asian",
-                "Tibetan"
-            ],
-            "tags": [],
-            "costForTwo": 25000,
-            "costForTwoString": "₹250 FOR TWO",
-            "deliveryTime": 20,
-            "minDeliveryTime": 20,
-            "maxDeliveryTime": 20,
-            "slaString": "20 MINS",
-            "lastMileTravel": 2,
-            "slugs": {
-                "restaurant": "hongs-kitchen-skymark-noida-expressway",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "SKYMARK ONE SECTOR - 98, NOIDA, UTTAR PRADESH (Ground Floor, Shop No. J - 4, Tower E,Skymark One, H-10/A, Sector-98, Noida",
-            "locality": "Vishwkarma Road",
-            "parentId": 9547,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "FLAT100 off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "FLAT100 off | Use FLATDEAL",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "FLAT100 off | Use FLATDEAL",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "₹100 OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use FLATDEAL",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "FLAT100 off | Use FLATDEAL",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 4000,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4000,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4000",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "2 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "571461",
-                "deliveryTime": 20,
-                "minDeliveryTime": 20,
-                "maxDeliveryTime": 20,
-                "lastMileTravel": 2,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "3.9",
-            "totalRatings": 500,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "594715",
-            "name": "Big Bowl (Big Bowl Company)",
-            "uuid": "c00b38fd-d721-4b07-8584-a2fa88307add",
-            "city": "10459",
-            "area": "Sector 110",
-            "totalRatingsString": "100+ ratings",
-            "cloudinaryImageId": "992f217c2f122c0d8fc385855ca30722",
-            "cuisines": [
-                "North Indian",
-                "Chinese",
-                "Tibetan",
-                "Desserts"
-            ],
-            "tags": [],
-            "costForTwo": 25000,
-            "costForTwoString": "₹250 FOR TWO",
-            "deliveryTime": 20,
-            "minDeliveryTime": 20,
-            "maxDeliveryTime": 20,
-            "slaString": "20 MINS",
-            "lastMileTravel": 3,
-            "slugs": {
-                "restaurant": "big-bowl-company-noida-expressway-noida-expressway",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "First Floor, Plot No- 3, Block- A-3,Sector- 110, Noida, NOIDA CITYZONE-1, Gautam Buddha Nagar ,Uttar Pradesh, 201304",
-            "locality": "Block- A",
-            "parentId": 11032,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "Flat ₹125 off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "₹125 OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 4800,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4800,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4800",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "3 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "594715",
-                "deliveryTime": 20,
-                "minDeliveryTime": 20,
-                "maxDeliveryTime": 20,
-                "lastMileTravel": 3,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "3.6",
-            "totalRatings": 100,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "183883",
-            "name": "Khadak Singh Da Dhaba",
-            "uuid": "6580a07c-6a70-4f54-8e76-8c235cb58f8b",
-            "city": "10459",
-            "area": "Hajipur",
-            "totalRatingsString": "5000+ ratings",
-            "cloudinaryImageId": "xc3vq7lpuclbtbyh0lgt",
-            "cuisines": [
-                "North Indian",
-                "Mughlai",
-                "Tandoor",
-                "Indian"
-            ],
-            "tags": [],
-            "costForTwo": 30000,
-            "costForTwoString": "₹300 FOR TWO",
-            "deliveryTime": 24,
-            "minDeliveryTime": 24,
-            "maxDeliveryTime": 24,
-            "slaString": "24 MINS",
-            "lastMileTravel": 2.799999952316284,
-            "slugs": {
-                "restaurant": "kadak-singh-da-dhaba-noida-expressway-noida-expressway",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "SHOP NO.-2, HOUSE-18, NEAR GYAN SAGAR PUBLIC SCHOOL, GALI NO.-2, VILLAGE HAZIPUR SEC-104 NOIDA, NOIDA CITY ZONE-5, Gautam Buddha Nagar , Uttar Pradesh-201301",
-            "locality": "Hazipur",
-            "parentId": 13170,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "Flat ₹125 off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "₹125 OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "ribbon": [
-                {
-                    "type": "PROMOTED"
-                }
-            ],
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 4000,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4000,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4000",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "cid=6529279~p=13~eid=00000187-c3c7-ca54-0a6c-6e00005a0d59",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "2.7 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "183883",
-                "deliveryTime": 24,
-                "minDeliveryTime": 24,
-                "maxDeliveryTime": 24,
-                "lastMileTravel": 2.799999952316284,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": true,
-            "avgRating": "4.1",
-            "totalRatings": 5000,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "594711",
-            "name": "Rolls & Bowls Company",
-            "uuid": "bf99e343-2075-40e6-a2c6-1d73843ed436",
-            "city": "10459",
-            "area": "Sector 110",
-            "totalRatingsString": "50+ ratings",
-            "cloudinaryImageId": "b76ea4dabf81247077db6a0b0286c145",
-            "cuisines": [
-                "Indian",
-                "North Indian",
-                "Chinese"
-            ],
-            "tags": [],
-            "costForTwo": 25000,
-            "costForTwoString": "₹250 FOR TWO",
-            "deliveryTime": 20,
-            "minDeliveryTime": 20,
-            "maxDeliveryTime": 20,
-            "slaString": "20 MINS",
-            "lastMileTravel": 3,
-            "slugs": {
-                "restaurant": "rolls-&-bowls-company-noida-expressway-noida-expressway",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "First Floor, Plot No- 3, Block- A-3, Sector- 110, Noida, NOIDA CITY ZONE-1, Gautam Buddha Nagar , Uttar Pradesh, 201304",
-            "locality": "",
-            "parentId": 22080,
-            "unserviceable": false,
-            "veg": false,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "aggregatedDiscountInfo": {
-                "header": "Flat ₹125 off",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "aggregatedDiscountInfoV2": {
-                "header": "₹125 OFF",
-                "shortDescriptionList": [
-                    {
-                        "meta": "Use MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "descriptionList": [
-                    {
-                        "meta": "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
-                        "discountType": "Flat",
-                        "operationType": "RESTAURANT"
-                    }
-                ],
-                "subHeader": "",
-                "headerType": 0,
-                "superFreedel": ""
-            },
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "distance",
-                        "fee": 4800,
-                        "message": ""
-                    },
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4800,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4800",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "3 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "594711",
-                "deliveryTime": 20,
-                "minDeliveryTime": 20,
-                "maxDeliveryTime": 20,
-                "lastMileTravel": 3,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "4.0",
-            "totalRatings": 50,
-            "new": false
-        },
-        "subtype": "basic"
-    },
-    {
-        "type": "restaurant",
-        "data": {
-            "type": "F",
-            "id": "331315",
-            "name": "ROYCE PAAN",
-            "uuid": "faf0cc3d-1935-468d-acaf-e71d8732ab99",
-            "city": "10459",
-            "area": "Hajipur",
-            "totalRatingsString": "100+ ratings",
-            "cloudinaryImageId": "kulxssd5pbuxync3wybt",
-            "cuisines": [
-                "Paan"
-            ],
-            "tags": [],
-            "costForTwo": 10000,
-            "costForTwoString": "₹100 FOR TWO",
-            "deliveryTime": 20,
-            "minDeliveryTime": 20,
-            "maxDeliveryTime": 20,
-            "slaString": "20 MINS",
-            "lastMileTravel": 2.700000047683716,
-            "slugs": {
-                "restaurant": "royce-paan-noida-expressway-noida-expressway",
-                "city": "noida-1"
-            },
-            "cityState": "10459",
-            "address": "KHASRA NO 514, SHOP NO 1, VILL- HAZIPUR, GROUND FLOOR, NOIDA, NOIDA CITY ZONE-5, Gautam Buddha Nagar (Uttar Pradesh), - 201301",
-            "locality": "Sector 104",
-            "parentId": 172643,
-            "unserviceable": false,
-            "veg": true,
-            "select": false,
-            "favorite": false,
-            "tradeCampaignHeaders": [],
-            "chain": [],
-            "feeDetails": {
-                "fees": [
-                    {
-                        "name": "time",
-                        "fee": 0,
-                        "message": ""
-                    },
-                    {
-                        "name": "distance",
-                        "fee": 4000,
-                        "message": ""
-                    },
-                    {
-                        "name": "special",
-                        "fee": 0,
-                        "message": ""
-                    }
-                ],
-                "totalFees": 4000,
-                "message": "",
-                "title": "Delivery Charge",
-                "amount": "4000",
-                "icon": ""
-            },
-            "availability": {
-                "opened": true,
-                "nextOpenMessage": "",
-                "nextCloseMessage": ""
-            },
-            "longDistanceEnabled": 0,
-            "rainMode": "NONE",
-            "thirdPartyAddress": false,
-            "thirdPartyVendor": "",
-            "adTrackingID": "",
-            "badges": {
-                "imageBased": [],
-                "textBased": [],
-                "textExtendedBadges": []
-            },
-            "lastMileTravelString": "2.7 kms",
-            "hasSurge": false,
-            "sla": {
-                "restaurantId": "331315",
-                "deliveryTime": 20,
-                "minDeliveryTime": 20,
-                "maxDeliveryTime": 20,
-                "lastMileTravel": 2.700000047683716,
-                "lastMileDistance": 0,
-                "serviceability": "SERVICEABLE",
-                "rainMode": "NONE",
-                "longDistance": "NOT_LONG_DISTANCE",
-                "preferentialService": false,
-                "iconType": "EMPTY"
-            },
-            "promoted": false,
-            "avgRating": "4.6",
-            "totalRatings": 100,
-            "new": false
-        },
-        "subtype": "basic"
-    }
-];
-
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dIwpl":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"dIwpl":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$edf7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -48656,7 +46595,7 @@ var _react = require("react");
 var _s = $RefreshSig$();
 const useRestrauntData = ()=>{
     _s();
-    const [requireddata, setrequireddata] = (0, _react.useState)();
+    const [requireddata, setrequireddata] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         getSwiggy();
     }, []);
@@ -48664,10 +46603,11 @@ const useRestrauntData = ()=>{
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5217372&lng=77.36725539999999&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
         setrequireddata(json?.data?.cards[2]?.data?.data?.cards);
-        return requireddata;
+    // return requireddata;
     }
+    return requireddata;
 };
-_s(useRestrauntData, "YWQ9fsYrpI297rOfT50E9B/16BQ=");
+_s(useRestrauntData, "tuY1gpSfAcUNT6kCAC21tg2yvO0=");
 exports.default = useRestrauntData;
 
   $parcel$ReactRefreshHelpers$edf7.postlude(module);
@@ -48675,7 +46615,16 @@ exports.default = useRestrauntData;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9R1Eu":[function(require,module,exports) {
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"9Lcuw":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "filtereddata", ()=>filtereddata);
+function filtereddata(searchText, res) {
+    const filtereddata = res.filter((x)=>x.data?.name?.toLowerCase()?.includes(searchText.toLowerCase()));
+    return filtereddata;
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"9R1Eu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$5b98 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -48750,88 +46699,46 @@ var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactRouterDom = require("react-router-dom");
+var _useRestrauntMenu = require("../hooks/useRestrauntMenu");
+var _dishes = require("./Dishes");
+var _dishesDefault = parcelHelpers.interopDefault(_dishes);
 var _s = $RefreshSig$();
 const RestaruntMenu = ()=>{
     _s();
     const { resid  } = (0, _reactRouterDom.useParams)();
-    const [dishes, setdishes] = (0, _react.useState)([]);
-    const [details, setdetails] = (0, _react.useState)([]);
-    (0, _react.useEffect)(()=>{
-        menu();
-    }, []);
-    async function menu() {
-        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5048573&lng=77.3396453&restaurantId=" + resid);
-        const json = await data.json();
-        console.log(json);
-        setdetails(json.data);
-    }
+    const [data1, details] = (0, _useRestrauntMenu.useRestrauntMenu)(resid);
+    // const dishes = useResDishes(resid)
+    // console.log(dishes)
+    console.log(data1.slice(1));
+    // console.log(details)
+    // const newresdata = resdata.slice(1)
+    // .card.card.itemCards[0]
+    // console.log(newresdata[0]?.card?.card?.itemCards[0]?.card?.info?.name)
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
-        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-            className: "card mb-3 row-res",
-            children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "row g-0",
-                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                    className: "col-md-8",
-                    children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                        className: "card-body",
-                        children: [
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h5", {
-                                className: "card-title",
-                                children: "Card title"
-                            }, void 0, false, {
-                                fileName: "src/components/RestaruntMenu.js",
-                                lineNumber: 31,
-                                columnNumber: 15
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                className: "card-text",
-                                children: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
-                            }, void 0, false, {
-                                fileName: "src/components/RestaruntMenu.js",
-                                lineNumber: 32,
-                                columnNumber: 15
-                            }, undefined),
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                                className: "card-text",
-                                children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("small", {
-                                    className: "text-body-secondary",
-                                    children: "Last updated 3 mins ago"
-                                }, void 0, false, {
-                                    fileName: "src/components/RestaruntMenu.js",
-                                    lineNumber: 38,
-                                    columnNumber: 17
-                                }, undefined)
-                            }, void 0, false, {
-                                fileName: "src/components/RestaruntMenu.js",
-                                lineNumber: 37,
-                                columnNumber: 15
-                            }, undefined)
-                        ]
-                    }, void 0, true, {
-                        fileName: "src/components/RestaruntMenu.js",
-                        lineNumber: 30,
-                        columnNumber: 13
-                    }, undefined)
-                }, void 0, false, {
-                    fileName: "src/components/RestaruntMenu.js",
-                    lineNumber: 29,
-                    columnNumber: 11
-                }, undefined)
-            }, void 0, false, {
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+                className: "nores",
+                children: [
+                    details.name,
+                    ".........."
+                ]
+            }, void 0, true, {
                 fileName: "src/components/RestaruntMenu.js",
-                lineNumber: 28,
-                columnNumber: 9
+                lineNumber: 25,
+                columnNumber: 5
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _dishesDefault.default), {}, void 0, false, {
+                fileName: "src/components/RestaruntMenu.js",
+                lineNumber: 26,
+                columnNumber: 5
             }, undefined)
-        }, void 0, false, {
-            fileName: "src/components/RestaruntMenu.js",
-            lineNumber: 27,
-            columnNumber: 7
-        }, undefined)
-    }, void 0, false);
+        ]
+    }, void 0, true);
 };
-_s(RestaruntMenu, "IJFd8qaBpQMn0H/CKBhAWM05ScA=", false, function() {
+_s(RestaruntMenu, "Uam7a0RGDFQZD/UB7oAug/b0AoA=", false, function() {
     return [
-        (0, _reactRouterDom.useParams)
+        (0, _reactRouterDom.useParams),
+        (0, _useRestrauntMenu.useRestrauntMenu)
     ];
 });
 _c = RestaruntMenu;
@@ -48844,6 +46751,108 @@ $RefreshReg$(_c, "RestaruntMenu");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}]},["1xC6H","lKzq4","bNKaB"], "bNKaB", "parcelRequire164e")
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","../hooks/useRestrauntMenu":"gZGYa","./Dishes":"hjryE"}],"gZGYa":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$0b0e = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$0b0e.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "useRestrauntMenu", ()=>useRestrauntMenu);
+parcelHelpers.export(exports, "useResDishes", ()=>useResDishes);
+var _react = require("react");
+var _s = $RefreshSig$(), _s1 = $RefreshSig$();
+const useRestrauntMenu = (resid)=>{
+    _s();
+    const [details, setdetails] = (0, _react.useState)([]);
+    const [data, setdata] = (0, _react.useState)([]);
+    (0, _react.useEffect)(()=>{
+        menu();
+    }, []);
+    async function menu() {
+        const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5048573&lng=77.3396453&restaurantId=" + resid);
+        const json = await data.json();
+        // console.log(json);
+        setdetails(json.data.cards[0]?.card?.card?.info);
+        setdata(json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+    }
+    return [
+        data,
+        details
+    ];
+};
+_s(useRestrauntMenu, "fPZGaA+AGSXvicbP87vZQzEIdBA=");
+const useResDishes = (resid)=>{
+    _s1();
+    const [dishes, setdishes] = (0, _react.useState)();
+    const [data0] = useRestrauntMenu(resid);
+    const data1 = data0.slice(1);
+    setdishes(data1?.card?.card?.itemCards);
+    return dishes;
+};
+_s1(useResDishes, "IXGe2L9kv4g+8QTHSIiMY2j3dXU=", false, function() {
+    return [
+        useRestrauntMenu
+    ];
+});
+
+  $parcel$ReactRefreshHelpers$0b0e.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hjryE":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$4db2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$4db2.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _useRestrauntMenu = require("../hooks/useRestrauntMenu");
+var _shimmer = require("./Shimmer");
+var _shimmerDefault = parcelHelpers.interopDefault(_shimmer);
+var _s = $RefreshSig$();
+const Dishes = ()=>{
+    _s();
+    const { resid  } = (0, _reactRouterDom.useParams)();
+    const [itemCards, setitemCards] = (0, _react.useState)([]);
+    const [data1] = (0, _useRestrauntMenu.useRestrauntMenu)(resid);
+    setitemCards(data1[1]?.card?.card?.itemCards);
+    console.log(data1[1]?.card?.card?.itemCards[0].card?.info?.name);
+    return itemCards?.length !== 0 && itemCards?.map((x)=>{
+        return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h1", {
+            children: x.card?.info?.name
+        }, void 0, false, {
+            fileName: "src/components/Dishes.js",
+            lineNumber: 14,
+            columnNumber: 35
+        }, undefined);
+    });
+};
+_s(Dishes, "95DqcPZISb8xzhuUjiJpA+UsfDk=", false, function() {
+    return [
+        (0, _reactRouterDom.useParams),
+        (0, _useRestrauntMenu.useRestrauntMenu)
+    ];
+});
+_c = Dishes;
+exports.default = Dishes;
+var _c;
+$RefreshReg$(_c, "Dishes");
+
+  $parcel$ReactRefreshHelpers$4db2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe","../hooks/useRestrauntMenu":"gZGYa","./Shimmer":"g6ZGj"}]},["1xC6H","lKzq4","bNKaB"], "bNKaB", "parcelRequire164e")
 
 //# sourceMappingURL=index.0641b553.js.map

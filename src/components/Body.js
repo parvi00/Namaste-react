@@ -1,41 +1,25 @@
 import { useState, useEffect } from "react";
 import ResCard from "./ResCard";
-import { resList } from "../config";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useRestrauntData from "../hooks/useRestrauntData";
+import { filtereddata } from "./utils/helper";
 
-function filter(searchText, res) {
-  const filtereddata = res.filter((x) => x.data?.name?.toLowerCase()?.includes(searchText.toLowerCase()));
-  return filtereddata;
-}
 
 const Body = () => {
-  const [allRes, setallRes] = useState([]);      
+  const [allRes, setallRes] = useState([]);
   const [Filterres, setFilterres] = useState([]);
-  const [searchText, setsearchText] = useState(); 
+  const [searchText, setsearchText] = useState();
 
 
+  const data1 = useRestrauntData();
 
   useEffect(() => {
-    getSwiggy();
-  }, []);
+    setFilterres(data1);
+    setallRes(data1);
+  },[data1]);
 
-  async function getSwiggy() {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.5217372&lng=77.36725539999999&page_type=DESKTOP_WEB_LISTING");
-    const json = await data.json();
-    setFilterres(json?.data?.cards[2]?.data?.data?.cards);
-    setallRes(json?.data?.cards[2]?.data?.data?.cards);
-  }
-
-  console.log()
-
-  const data = useRestrauntData()
-
-setFilterres(data);
-    setallRes(data);
-
-  // if(Filterres?.length == 0) return <h1 className="nores">no restraunt is there</h1>
+// console.log(Filterres)
 
   return allRes?.length == 0 ? (
     <Shimmer />
@@ -54,21 +38,16 @@ setFilterres(data);
         <button
           className="search-btn"
           onClick={() => {
-            const data = filter(searchText, allRes);
+            const data = filtereddata(searchText, allRes);
             setFilterres(data);
-            
           }}
         >
           Search
         </button>
       </div>
       <div className="body">
-        {
-        
-        
-        Filterres.map((x) => {
+        {Filterres.map((x) => {
           return (
-          
             <ResCard
               name={x.data.name}
               cuisines={x.data.cuisines}
@@ -79,12 +58,8 @@ setFilterres(data);
               time={x.data.slaString}
               id={x.data.id}
             />
-            
           );
-        }) 
-        
-        
-        }
+        })}
       </div>
     </>
   );

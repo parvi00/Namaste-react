@@ -1,50 +1,35 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useRestrauntMenu, } from "../hooks/useRestrauntMenu";
+import Dishes from "./Dishes";
 
 const RestaruntMenu = () => {
   const { resid } = useParams();
 
-  const [dishes, setdishes] = useState([]);
-  const [details, setdetails] = useState([]);
+  const[data1,details]  = useRestrauntMenu(resid)
+  
+  
+  
+  // const dishes = useResDishes(resid)
+  // console.log(dishes)
 
-  useEffect(() => {
-    menu();
-  }, []);
 
-  async function menu() {
-    const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.5048573&lng=77.3396453&restaurantId=" +
-        resid
-    );
-    const json = await data.json();
-    console.log(json);
-    setdetails(json.data);
-  }
+  console.log(data1.slice(1))
+  // console.log(details)
+  // const newresdata = resdata.slice(1)
+  // .card.card.itemCards[0]
+  // console.log(newresdata[0]?.card?.card?.itemCards[0]?.card?.info?.name)
 
   return (
     <>
-      <div className="card mb-3 row-res">
-        <div className="row g-0">
-          <div className="col-md-8">
-            <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p className="card-text">
-                <small className="text-body-secondary">
-                  Last updated 3 mins ago
-                </small>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
+    <h1 className="nores">{details.name}..........</h1>
+    <Dishes/>
+    </> 
   );
 };
 
 export default RestaruntMenu;
+
+
+
+
